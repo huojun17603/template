@@ -82,13 +82,13 @@
 				<td><input name="loginkey" id="loginkey" TYPE="password" style="background:url(<%=basePath%>images/lgimg/login_6.gif) repeat-x; border:solid 1px #27B3FE; height:20px;width:150px; background-color:#FFFFFF" value=""></td>
 			</tr>
 			
-			<tr>
+		<%--	<tr>
 				<td width="80" height="30"> 验 证 码 </td>
 				<td>
 					<input id="vcode_input" name="vcode" type="text" size="4"  style="background:url(<%=basePath%>images/lgimg/login_6.gif) repeat-x; border:solid 1px #27B3FE; height:20px; background-color:#FFFFFF" maxlength="6">
 					<img id="code_imge" src="<%=basePath%>portal/getValidCode?type=string&length=4"  onclick="this.src='<%=basePath%>portal/getValidCode?type=string&length=4&'+Math.random();" title="点击切换" width="100" height="23" style="vertical-align: middle;"/>
 				</td>
-			</tr>
+			</tr>--%>
 			
 			<tr>
 				<td height="40" colspan="2" align="center">

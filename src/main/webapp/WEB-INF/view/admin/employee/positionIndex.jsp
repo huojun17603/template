@@ -62,7 +62,7 @@
 					</li>
 					<li>
 						<label>职位名称：</label>
-						<input id="name_input" name="name" class="easyui-validatebox textbox" style="height: 20px;"
+						<input id="name_input" name="name" class="easyui-validatebox textbox vipt" style="height: 20px;"
 							data-options="required:true">
 					</li>
 					<li>

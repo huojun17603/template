@@ -12,11 +12,10 @@
         <menu name="反馈管理" code="admin-customer-service-feedback" view="admin/system/feedbackIndex" />
     </catalog>
 
-    <catalog name="内容管理" code="admin-context" sequence="99">
+    <catalog name="内容管理" code="admin-context" sequence="96">
         <menu name="公告管理" code="admin-context-inform-index" view="admin/context/informIndex" />
         <menu name="文章管理" code="admin-context-notice-index" view="admin/context/noticeIndex" />
         <menu name="广告管理" code="admin-context-adv-index" view="admin/context/advIndex" />
-        <menu name="内容监控" code="admin-context-monitor-index" view="admin/context/monitorIndex" />
         <menu name="文章分类管理" code="admin-context-noteclass-index" view="admin/context/noteclassIndex" />
     </catalog>
 
@@ -31,7 +30,7 @@
         <menu name="区域管理" code="admin-address-index" view="admin/dictionary/addressIndex" />
     </catalog>
 
-    <catalog name="员工账户管理" code="admin-employee" sequence="98">
+    <catalog name="员工账户管理" code="admin-employee" sequence="97">
         <menu name="员工管理" code="admin-employee-index" view="admin/employee/employeeIndex" />
         <menu name="组织机构管理" code="admin-organization-index" view="admin/employee/organizationIndex" />
         <menu name="职位权限管理" code="admin-position-index" view="admin/employee/positionIndex" />

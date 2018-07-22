@@ -32,7 +32,7 @@ $(function(){
 		}
 	});
     $.ajax({
-        url: basePath+postionsList,
+        url: basePath+postionsList + "?classes=1",
         success: function(data){
             $("#postion_input").combobox({
                 editable:false,

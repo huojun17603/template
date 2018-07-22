@@ -48,18 +48,18 @@
 					</li>
 					<li>
 						<label>机构名称：</label>
-						<input id="orgName_input" name="orgName" class="easyui-validatebox textbox" style="height: 20px;"
+						<input id="orgName_input" name="orgName" class="easyui-validatebox textbox vipt" style="height: 20px;"
 							data-options="required:true">
 					</li>
 					<li>
 						<label>领导：</label>
 						<input id="leader_input" name="leader" type="hidden"/>
-						<input id="leaderName_input" name="leaderName"  onclick="selectLeader()" readonly="readonly" class="easyui-validatebox textbox"/>
+						<input id="leaderName_input" name="leaderName"  onclick="selectLeader()" readonly="readonly" class="easyui-validatebox textbox vipt"/>
 					</li>
 					<li>
 						<label>副领导：</label>
 						<input id="deputyLeader_input" name="deputyLeader" type="hidden"/>
-						<input id="deputyLeaderName_input" name="deputyLeaderName" onclick="selectDeputyLeader()" readonly="readonly" class="easyui-validatebox textbox">
+						<input id="deputyLeaderName_input" name="deputyLeaderName" onclick="selectDeputyLeader()" readonly="readonly" class="easyui-validatebox textbox vipt">
 					</li>
 				</ul>
         		<div class="sgtz_center">

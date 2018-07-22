@@ -55,4 +55,8 @@
 	<!-- 系统子模块加载 -->
 	<bean class="com.ich.module.processor.ModularInitProcessor"></bean>
 
+	<bean class="com.template.context.processor.ViewPostionProcessor"></bean>
+
+	<bean class="com.template.context.processor.ViewTagProcessor"></bean>
+
 </beans>

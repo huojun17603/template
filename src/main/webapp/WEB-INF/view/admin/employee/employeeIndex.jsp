@@ -63,23 +63,23 @@
 					</li>
 					<li>
 						<label>登录账号：</label>
-						<input id="logincode_input" name="logincode" class="easyui-validatebox textbox" data-options="required:true" >
+						<input id="logincode_input" name="logincode" class="easyui-validatebox textbox vipt" data-options="required:true" >
 					</li>
 					<li>
 						<label>登录密码：</label>
-						<input id="loginkey_input" name="loginkey" class="easyui-validatebox textbox" data-options="required:true" >
+						<input id="loginkey_input" name="loginkey" class="easyui-validatebox textbox vipt" data-options="required:true" >
 					</li>
 					<li>
 						<label>员工名称：</label>
-						<input id="name_input" name="name" class="easyui-validatebox textbox" data-options="required:true" >
+						<input id="name_input" name="name" class="easyui-validatebox textbox vipt" data-options="required:true" >
 					</li>
 					<li>
 						<label>绑定手机：</label>
-						<input id="phone_input" name="phone" class="easyui-validatebox textbox" >
+						<input id="phone_input" name="phone" class="easyui-validatebox textbox vipt" >
 					</li>
 					<li>
 						<label>绑定邮箱：</label>
-						<input id="email_input" name="email" class="easyui-validatebox textbox" >
+						<input id="email_input" name="email" class="easyui-validatebox textbox vipt" >
 					</li>
 				</ul>
         		<div class="sgtz_center">

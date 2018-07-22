@@ -64,6 +64,25 @@ div,ul,li{padding: 0; margin: 0;}
 .hmd .sp {margin: 5px;color:#999;}
 .hmd .vl {margin: 5px;font-size: 24px;font-weight: bold;}
 
+.vipt{
+    font-size: 12px;
+    margin: 0px;
+    padding: 4px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    height: 24px;
+    line-height: 22px;
+    width: 173px;
+}
+.vipt:focus{
+    border-color: #bbbbbb;
+    -moz-box-shadow: 0 0 3px 0 #D4D4D4;
+    -webkit-box-shadow: 0 0 3px 0 #D4D4D4;
+    box-shadow: 0 0 3px 0 #D4D4D4;
+}
+input{
+    outline:none;
+}
 
 /**裁剪器样式**/
 .jcrop-box{

@@ -52,7 +52,7 @@ $(function(){
         columns:[[
             {field:'id',title:'id',hidden:true},
             {field:'wname',title:'被举报人',align:"center",width:150},
-            {field:'reason',title:'举报理由',align:"center",width:500,formatter: formatterTitle},
+            {field:'reason',title:'举报理由',align:"center",width:500,formatter: formatterContext},
             {field:'createtime',title:'举报时间',align:"center",width:150,formatter: formatterTime},
             {field:'aname',title:'举报人',align:"center",width:150}
         ]],

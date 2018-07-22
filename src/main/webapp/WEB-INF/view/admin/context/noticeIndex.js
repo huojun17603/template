@@ -45,7 +45,7 @@
 	$("#postion_input").combobox({
         editable:false,
         multiple:true,
-		url:postionsList,
+		url:postionsList + "?classes=1",
 		valueField:'code',
 		textField:'name'
 	});

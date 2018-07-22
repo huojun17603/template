@@ -25,6 +25,11 @@
       <version>1.2.1</version>
     </dependency>
     <dependency>
+      <groupId>com.ich.dic</groupId>
+      <artifactId>ich.dic</artifactId>
+      <version>1.0.1</version>
+    </dependency>
+    <dependency>
       <groupId>com.ich.admin</groupId>
       <artifactId>ich-admin</artifactId>
       <version>1.0.2</version>

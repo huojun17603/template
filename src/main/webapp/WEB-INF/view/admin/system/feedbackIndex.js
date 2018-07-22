@@ -15,7 +15,7 @@ $(function(){
 			{field:'id',title:'id',hidden:true},
 			{field:'username',title:'反馈人',align:"center",width:150},
 			{field:'contact',title:'联系方式',align:"center",width:150},
-			{field:'context',title:'反馈内容',align:"center",width:300,formatter: formatterTitle},
+			{field:'context',title:'反馈内容',align:"center",width:300,formatter: formatterContext},
 			{field:'createtime',title:'创建时间',align:"center",width:200,formatter:formatterTime},
             {field:'status',title:'状态',align:"center",width:100,
                 formatter: function(value,row,index){
@@ -29,7 +29,7 @@ $(function(){
             },
             {field:'handlername',title:'处理人',align:"center",width:150},
             {field:'handletime',title:'处理时间',align:"center",width:200,formatter:formatterTime},
-			{field:'handlermark',title:'处理说明',align:"center",width:200,formatter: formatterTitle}
+			{field:'handlermark',title:'处理说明',align:"center",width:200,formatter: formatterContext}
 		]],
 		toolbar:'#tool',
 		onLoadSuccess:function(){
