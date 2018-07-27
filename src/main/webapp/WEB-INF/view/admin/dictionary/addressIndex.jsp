@@ -15,6 +15,7 @@
 	<script type="text/javascript">
 		var addressQueryUrl = "dictionary/address/query";
 		var addressSaveOrUpdateUrl = "dictionary/address/saveOrUpdate";
+        var addressSaveOrUpdateUrl = "dictionary/address/saveOrUpdate";
 		var addressList = "dictionary/address/list";
 	</script>
   </head>

@@ -10,21 +10,6 @@
 	   	<script type="text/javascript" src="<%=basePath%>script/common/jquery.resizeEnd.min.js"></script>
 	   	<script type="text/javascript" src="<%=basePath%>script/common/waterfall.js"></script>
 		<script type="text/javascript" src="<%=basePath%>view/admin/common/environmental.js"></script>
-
-	<style type="text/css">
-	   	#header { display:block; overflow:hidden; height:auto; z-index:30}
-		#header .headerNav { height:50px; background-repeat:no-repeat; background-position:100% -50px;}
-		#header .logo { float:left; width:200px; height:58px;}
-		#header .nav { display:block; height:21px; position:absolute; top:20px; right:0; z-index:31;margin-right: 20px;}
-		#header .nav li { float:left; margin-left:-1px; padding:0 10px; line-height:11px; position:relative;}
-		#header .nav li a {padding:6px 15px; width:100px;  height:40px; color: #fff; border-radius: 3px; background:#ff9933;text-decoration: none;}
-		#header .nav li a:hover{ color: #fff; background: #e89848;}
-		#header .nav ul { display:none; width:230px; border:solid 1px #06223e; overflow:hidden; background:#999; position:absolute; top:20px; right:0;}
-		#header .nav ul li { margin-top:10px; height:21px;}
-		#header .nav ul li a { color:#000;}
-		#header .nav .selected ul {display:block;}
-		.tree-icon {width: 0px;}
-   	</style>
  	</head>
  	<script type="text/javascript">
  		var userMenuList = "admin/employeeMenus";
@@ -38,7 +23,7 @@
 			<div class="headerNav">
 				<a class="logo" href="javascript:void(0);">
 					<!-- LOGO：布局参数请自定义 -->
-					<img style="margin:5 20" alt="LOGO" src="<%=SystemConfig.getParams("ADMIN_HOME_LOGO") %>">
+					<img style="margin:5 20" alt="LOGO" src="images/admin/logo.png">
 				</a>
 				<div style="float:left;height: 100%;vertical-align: middle;">
 					<p style="line-height:1px;font-size:16px;color: #FF8C69;font-family:'微软雅黑'"><%=SystemConfig.getParams("ADMIN_HOME_NAME") %></p>
@@ -68,7 +53,7 @@
 			Copyright©<%=SystemConfig.getParams("ADMIN_HOME_TAG")%>；All Rights Reserved
 		</div>
 	    <div data-options="region:'center'" style="background-color: #e8e8e8">
-	    	<div id="home_tabs" class="easyui-tabs" data-options="fit:true,border:false,plain:true">
+	    	<div id="home_tabs" class="easyui-tabs" data-options="fit:true,border:false,plain:true,pill:true">
 				<div title="首页">
 					<div id="home_context" class="homeBox" style="width: 100%;">
 						<div id="home_l" style="width: 50%;float:left;">

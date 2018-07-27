@@ -1,119 +1,59 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="common/taglib.jsp"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="common/taglib.jsp" %>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>网站后台管理登录页面</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<jsp:include page="common/shareJs.jsp" />
-	<script type="text/javascript">
-		if (window != top){
-			top.location.href = location.href; 
-		}
-		//前端账号密码格式验证
-		function onsubmitFrom(){
-			var userName = $("#logincode");
-			var passwordObj = $("#loginkey");
-			var codeObj = $("#vcode_input");
-			if(userName.val() == '' ) {
-				$("#id_error_span").show();
-				$("#message").text( "请输入用户名！" );
-				return false;
-			}
-			if( passwordObj.val() == '' ) {
-				$("#id_error_span").show();
-				$("#message").text( "请输入密码！" );
-				return false;
-			}
-			$.ajax({
-				url:'<%=basePath%>admin/login',	//登录
-				method:'post',
-				dataType:'json',
-				data:$("#loginForm").serialize(),
-				success:function(result){
-					if(0 == result.status){
-						window.location.href='<%=basePath%>admin/index';
-					}else{
-						$("#id_error_span").show();
-						$("#code_imge").click();
-						$("#code_input").val("");
-						$("#message").text(result.msg);
-					}
-				}
-			});
-		}
-		//回车键快速登录【兼容】
-		document.onkeydown = function keyLogin(e){
-		 	e = e||event;
-			if (e.keyCode==13) {  //回车键的键值为13
-			  onsubmitFrom();
-			}
-		}
-		
-	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<title>运营管理平台</title>
+	<link href="/css/admin/login.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/script/jquery-1.8.3.min.js"></script>
 </head>
-
-<body style="background-repeat: no-repeat;background-color: #9CDCF9;background-position: 0px 0px;">
-<table width="730" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:220px;">
-	<tr>
-	    <td width="353" height="259" align="center" valign="bottom" background="<%=basePath%>images/lgimg/login_1.gif">
-	    <table width="90%" border="0" cellspacing="3" cellpadding="0">
-	      <tr>
-	        <td align="right" valign="bottom" style="color:#05B8E4;" ></td>
-	      </tr>
-	    </table>
-	    </td>
-	    <td width="250px;" background="<%=basePath%>images/lgimg/login_2.gif">
-	    <form method="post" name="login" id="loginForm">
-	    <input type="hidden" name="" value="" id="">
-	    <table width="240" height="106" border="0" align="center" cellpadding="2" cellspacing="0">
-			<tr>
-		        <td height="50" colspan="2" align="left">&nbsp;</td>
-		    </tr>
-		    <tr>
-				<td width="80" height="30" align="left" style="font-family:微软雅黑">登录名称</td>
-				<td><input name="logincode" id="logincode" TYPE="text" style="background:url(<%=basePath%>images/lgimg/login_6.gif) repeat-x; border:solid 1px #27B3FE; height:20px; width:150px;background-color:#FFFFFF" size="16" value=""></td>
-			</tr>
-			<tr>
-				<td width="80" height="30" align="left" style="font-family:微软雅黑">登录密码</td>
-				<td><input name="loginkey" id="loginkey" TYPE="password" style="background:url(<%=basePath%>images/lgimg/login_6.gif) repeat-x; border:solid 1px #27B3FE; height:20px;width:150px; background-color:#FFFFFF" value=""></td>
-			</tr>
-			
-		<%--	<tr>
-				<td width="80" height="30"> 验 证 码 </td>
-				<td>
-					<input id="vcode_input" name="vcode" type="text" size="4"  style="background:url(<%=basePath%>images/lgimg/login_6.gif) repeat-x; border:solid 1px #27B3FE; height:20px; background-color:#FFFFFF" maxlength="6">
-					<img id="code_imge" src="<%=basePath%>portal/getValidCode?type=string&length=4"  onclick="this.src='<%=basePath%>portal/getValidCode?type=string&length=4&'+Math.random();" title="点击切换" width="100" height="23" style="vertical-align: middle;"/>
-				</td>
-			</tr>--%>
-			
-			<tr>
-				<td height="40" colspan="2" align="center">
-					<span style="font-family:微软雅黑;display:none;" id="id_error_span" >
-						<img src="<%=basePath%>images/lgimg/tip.gif" width="16" height="16"><font color="red" id="message">${message}</font>
-					</span>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-					<input type="button" onclick="onsubmitFrom()" style="background:url(<%=basePath%>images/lgimg/login_5.gif) no-repeat; cursor: pointer;" value=" 登  录 "> 
-					<input type="reset" style="background:url(<%=basePath%>/images/lgimg/login_5.gif) no-repeat; cursor: pointer;" value=" 取  消 ">
-				</td>
-			</tr>
-			<tr>
-				<td height="5" colspan="2"></td>
-			</tr>
-		</table>
+<script>
+    //如果iframe返回到登录页面，则父页面也返回
+    if (window != top){
+        top.location.href = location.href;
+    }
+    function login(){
+        $.ajax({
+            url:'/admin/login',	//登录
+            method:'post',
+            dataType:'json',
+            data:$("#loginForm").serialize(),
+            success:function(result){
+                if(0 == result.status){
+                    window.location.href='/admin/index';
+                }else{
+                    alert(result.msg);
+                }
+            }
+        });
+    }
+    //回车键快速登录【兼容】
+    document.onkeydown = function keyLogin(e){
+        e = e||event;
+        if (e.keyCode==13) {  //回车键的键值为13
+            login();
+        }
+    }
+</script>
+<body>
+<div class="login_box">
+	<div class="login_l_img"><img src="/images/admin/login-img.png" /></div>
+	<div class="login">
+		<div class="login_logo"><a href="#"><img src="/images/admin/login_logo.png" /></a></div>
+		<div class="login_name">
+			<p>运营管理平台</p>
+		</div>
+		<form id="loginForm" method="post">
+			<input name="logincode" type="text" placeholder="请输入账号" >
+			<input name="loginkey" type="password" id="password" placeholder="请输入密码"/>
+			<input value="登录" style="width:100%;" type="button" onclick="login()">
 		</form>
-	    </td>
-	    <td width="133" background="<%=basePath%>images/lgimg/login_3.gif">&nbsp;</td>
-	</tr>
-	<tr>
-    	<td height="161" colspan="3" background="<%=basePath%>images/lgimg/login_4.gif"></td>
-	</tr>
-</table>
+	</div>
+	<%--<div class="copyright">某某有限公司 版权所有©2016-2018 技术支持电话：000-00000000</div>--%>
+</div>
 </body>
 </html>

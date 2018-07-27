@@ -22,7 +22,7 @@
     <dependency>
       <groupId>com.ich.core</groupId>
       <artifactId>ich.core</artifactId>
-      <version>1.2.1</version>
+      <version>1.2.2</version>
     </dependency>
     <dependency>
       <groupId>com.ich.dic</groupId>
@@ -90,7 +90,7 @@
         <artifactId>tomcat7-maven-plugin</artifactId>
         <configuration>
           <uriEncoding>UTF-8</uriEncoding>
-          <port>8080</port>
+          <port>8000</port>
           <path>/</path>
         </configuration>
       </plugin>

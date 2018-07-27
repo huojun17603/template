@@ -45,7 +45,7 @@
 
     <div id="window" class="easyui-window" title="举报处理结果"
     data-options="modal:true,closable:false,collapsible:false,minimizable:false,maximizable:false,resizable:false,closed:true"
-    style="width:550px;height:500px;padding:10px;">
+    style="width:550px;height:300px;padding:10px;">
         <form id="applyForm" action="" method="post">
         <input type="hidden" name="wid">
             <ul class="fm_s" style="overflow: inherit;">

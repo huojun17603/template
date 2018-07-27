@@ -7,9 +7,9 @@
 
 <link rel="stylesheet" type="text/css" href="<%=basePath%>script/easyui/themes/icon.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>script/easyui/themes/color.css">
-<link rel="stylesheet" type="text/css" href="<%=basePath%>script/easyui/themes/bootstrap/easyui.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>script/easyui/themes/bootstrapx/easyui.css">
 <!-- 注意定义的先后顺序 -->
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/index.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/admin/index.css">
 <script type="text/javascript" src="<%=basePath%>script/common/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>script/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>script/easyui/easyui-lang-zh_CN.js"></script>
@@ -27,7 +27,7 @@
         return false;
     }
     function img_error(obj){
-        $(obj).attr('src','<%=basePath %>images/logo.gif')
+        $(obj).attr('src','<%=basePath %>images/admin/unimg.jpg')
     }
     //*************************************************************************//
     //*****************************设置ajax请求全局默认设置***************************//

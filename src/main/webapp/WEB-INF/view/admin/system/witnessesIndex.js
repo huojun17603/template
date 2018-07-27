@@ -14,7 +14,7 @@ $(function(){
 	    columns:[[
 			{field:'id',title:'id',hidden:true},
 			{field:'wname',title:'被举报人',align:"center",width:150},
-			{field:'reason',title:'举报理由',align:"center",width:500,formatter: formatterTitle},
+			{field:'reason',title:'举报理由',align:"center",width:500,formatter: formatterContext},
 			{field:'createtime',title:'举报时间',align:"center",width:150,formatter: formatterTime},
             {field:'aname',title:'举报人',align:"center",width:150},
             {field:'status',title:'状态',align:"center",width:100,
@@ -29,7 +29,7 @@ $(function(){
 			},
             {field:'handlername',title:'处理人',align:"center",width:150},
             {field:'handletime',title:'处理时间',align:"center",width:200,formatter:formatterTime},
-            {field:'handlermark',title:'处理说明',align:"center",width:200,formatter: formatterTitle}
+            {field:'handlermark',title:'处理说明',align:"center",width:200,formatter: formatterContext}
 		]],
 		toolbar:'#tool',
 		onLoadSuccess:function(){
@@ -116,7 +116,7 @@ function handle(){
  	});
 }
 
-function closeWin(){
+function closeHandleWin(){
 	$('#window').window('close');
 }
 

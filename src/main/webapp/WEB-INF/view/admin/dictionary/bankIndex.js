@@ -58,15 +58,18 @@ $(function(){
 		}
 	});
 });
+var applyUrl = "";
 
 function addBankWindow(){
 	$('#apply_form').form("clear");
+    applyUrl = bankSaveUrl;
 	$('#apply_window').window('open');
 	$('#apply_window').window('center');	
 }
 
 function editBankWindow(index){
 	$('#apply_form').form("clear");
+    applyUrl = bankUpdateUrl;
 	$("#datagrid").datagrid("selectRow",index);
 	var row = $("#datagrid").datagrid("getSelected");
 	$("#apply_form").form("load",{
@@ -86,7 +89,7 @@ function closeWindow(){
 
 function apply(){
 	$.ajax({
-        url: basePath+bankSaveOrUpdateUrl,
+        url: basePath+applyUrl,
         data: $('#apply_form').serialize(),
         success: function(data){
             if(data.status==0){
