@@ -5,49 +5,67 @@ $(function(){
 		striped:true,
 	    fit:true,
 	    pageSize:50,
-	    pageList:[50,100],
-	    idField:'b_Id',
+	    idField:'id',
 	    loadMsg:'加载中……',
 	    rownumbers:true,//序号
 	    pagination:true,//显示底部分页工具栏
 	    singleSelect:true,//单选
+        fitColumns:true,
+        sortName:"onum",
+        sortOrder:"desc",
 		columns:[[
-		          {field:'code',title:'编码',align:"center",width:120},
-		          {field:'name',title:'名称',align:"center",width:150},
-		          {field:'themecode',title:'主题色',align:"center",width:100,
+		          {field:'code',title:'编码',width:100},
+		          {field:'name',title:'名称',width:500},
+		          {field:'themecode',title:'主题色',width:100,
 		        	  styler: function(value,row,index){
 		        		  if(!isEmpty(value)) return 'background-color:'+value+';';
 		        	  }
 		          },
-		          {field:'status',title:'状态',align:"center",width:120,
+                  {field:'onum',title:'排序',width:50,sortable:true},
+		          {field:'status',title:'状态',width:100,
 		        	  formatter: function(value,row,index){
 		        		  switch (value) {
-							case 0:return "禁用";
-							case 1:return "可用";
+							case 0:return "<input dataid='" + row.id + "' name='datagrid-switchbutton' value='0'>";
+							case 1:return "<input dataid='" + row.id + "' name='datagrid-switchbutton' value='1'>";
 							default:
 								break;
 						}
 		        	  }
 		          },
-		          {field:'id',title:'操作',align:"center",width:120,
+		          {field:'id',title:'操作',width:100,
 		        	  formatter: function(value,row,index){
 		        		  var html = '';
-				          html += '<a href="javascript:void(0)" style="width:80px;margin:5px;"  onclick="editBankWindow(\''+index+'\')">修改</a>';
-				          if(row.status==0){
-				        	  html += '|<a href="javascript:void(0)" style="width:80px;margin:5px;"  onclick="ableBank(\''+value+'\')">启用</a>';
-				          }else{
-				        	  html += '|<a href="javascript:void(0)"  style="width:80px;margin:5px;"  onclick="disableBank(\''+value+'\')">禁用</a>';
-				          }
+				          html += '<a href="javascript:void(0)" style="width:80px;font-size: 14px; color: #23527c;text-decoration: none;"  onclick="editBankWindow(\''+index+'\')">修改</a>';
 				          return html;
 		        	  }
 		          }
 		]],
 		toolbar:'#tool',
 		onLoadSuccess:function(){
+            $("input[name='datagrid-switchbutton']").each(function(index,item){
+				var checked = item.value==1;
+				var dataid = $(item).attr("dataid");
+                $(this).switchbutton({
+                    onText:'正常',
+                    offText:'禁用',
+                    checked:checked,
+                    onChange: function(checked){
+                    	if(checked){
+                            ableBank(dataid);
+						}else {
+                    		disableBank(dataid)
+						}
+                    }
+				});
+            });
 			$("#datagrid").datagrid('scrollTo',0);
 		}
 	});
-	
+    var pager = $('#datagrid').datagrid('getPager');    // get the pager of datagrid
+    pager.pagination({
+        layout:['first','prev','links','next','last','sep','manual']
+    });
+
 	$("#themeCode_input").minicolors({
 		change: function(hex, opacity) {
 			if( !hex ) return;
@@ -76,7 +94,8 @@ function editBankWindow(index){
 		id:row.id,
 		code:row.code,
 		name:row.name,
-		themecode:row.themecode
+		themecode:row.themecode,
+        onum:row.onum
 	});
 	$("#themeCode_input").minicolors('value', row.themecode);
 	$('#apply_window').window('open');
@@ -138,6 +157,13 @@ function disableBank(id){
         }
     });
 }
-function doSearch(searchkey){
-	$("#datagrid").datagrid("reload",{searchkey:searchkey});
+
+function doSearch(){
+    var searchkey = $("#sk_searchkey").val();
+    $("#datagrid").datagrid("reload",{searchkey:searchkey});
+}
+
+function doClear(){
+    $("#sk_searchkey").textbox("clear");
+    $("#datagrid").datagrid("reload",{searchkey:null});
 }

@@ -40,7 +40,7 @@ public class AddressController extends AdminController {
 		HttpEasyUIResponse response = new HttpEasyUIResponse(HttpEasyUIResponse.HTTP_OK,HttpEasyUIResponse.HTTP_MSG_OK,null);
 		response.setRows(list);
 		response.setTotal(page.getRowCount());
-		return callback(callback, JsonUtils.objectToJson(list));
+		return callback(callback, JsonUtils.objectToJson(response));
 	}
 
 	@RequestMapping(value="address/list",produces= MediaType.APPLICATION_JSON_VALUE+";charset=utf-8")

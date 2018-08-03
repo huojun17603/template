@@ -5,13 +5,14 @@ $(function(){
         rownumbers:true,
         idField:"id",
         treeField:"name",
+        fitColumns:true,
 	    columns:[[
 			{field:'id',title:'id',hidden:true},
 			{field:'name',title:'名称',width:150},
-			{field:'remark',title:'说明',width:300},
+			{field:'remark',title:'说明',width:400},
             {field:'attr',title:'其他属性',width:200},
             {field:'onum',title:'排序值',width:100},
-			{field:'status',title:'状态',align:"center",width:100,
+			{field:'status',title:'状态',width:100,
 				formatter: function(value,row,index){
 					return value?"<font color='green'>正常</font>":"<font color='red'>禁用</font>";
 				}
@@ -19,7 +20,6 @@ $(function(){
 		]],
 		toolbar:'#tool',
 		onLoadSuccess:function(){
-            initPermissionButton();
 		}
 	});
     goto1();

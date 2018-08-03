@@ -5,17 +5,17 @@ $(function(){
 		striped:true,
 	    fit:true,
 	    pageSize:50,
-	    pageList:[50,100],
 	    idField:'id',
 	    loadMsg:'加载中……',
 	    rownumbers:true,//序号
 	    pagination:true,//显示底部分页工具栏
 	    singleSelect:true,//单选
+        fitColumns:true,
 	    columns:[[
-	    	      {field:'id',title:'区域编码',align:"center",width:150},
-		          {field:'letter',title:'首字母',align:"center",width:50},
-		          {field:'name',title:'区域名称',align:"center",width:200},
-		          {field:'type',title:'级别',align:"center",width:150,
+	    	      {field:'id',title:'区域编码',width:100},
+		          {field:'letter',title:'首字母',width:50},
+		          {field:'name',title:'区域名称',width:500},
+		          {field:'type',title:'级别',width:100,
 		        	  formatter: function(value,row,index){
 		        		  switch (value) {
 							case 1:return "省级";
@@ -27,8 +27,8 @@ $(function(){
 						}
 		        	  }
 		          },
-		          {field:'parentid',title:'父级编码',align:"center",width:150},
-		          {field:'status',title:'状态',align:"center",width:150,
+		          {field:'parentid',title:'父级编码',width:100},
+		          {field:'status',title:'状态',width:50,
 		        	  formatter: function(value,row,index){
 		        		  switch (value) {
 							case 0:return "已删除";
@@ -44,6 +44,11 @@ $(function(){
 			$("#datagrid").datagrid('scrollTo',0);
 		}
 	});
+    var pager = $('#datagrid').datagrid('getPager');    // get the pager of datagrid
+    pager.pagination({
+        layout:['first','prev','links','next','last','sep','manual']
+    });
+
 	$("#type_input").combobox({
 		editable:false,
 		width:120,
@@ -119,15 +124,6 @@ $(function(){
 			});
         }
     });
-	
-	
-	$("#sk_type").combobox({
-		editable:false,
-		width:120,
-		onChange:function(){
-			doSearch($("#sk_searchkey").val());
-		}
-	});
 });
 
 function openAddWindow(){
@@ -198,8 +194,15 @@ function applyEdit(){
     });
 }
 
-function doSearch(searchkey){
+function doSearch(){
+    var searchkey = $("#sk_searchkey").val();
 	var sk_type = $("#sk_type").combobox("getValue");
 	if(sk_type=='类型（全部）')sk_type = null;
 	$("#datagrid").datagrid("reload",{searchkey:searchkey,type:sk_type});
+}
+
+function doClear(){
+    $("#sk_searchkey").textbox("clear");
+    $("#sk_type").combobox("clear");
+    $("#datagrid").datagrid("reload",{searchkey:null,type:null});
 }

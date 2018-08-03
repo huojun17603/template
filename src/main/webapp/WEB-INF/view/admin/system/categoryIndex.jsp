@@ -24,22 +24,28 @@
   <body style="width:100%;height:100%;">
 
     <table id="datagrid"></table>
-    
-    <div id="tool" style="padding:0px;height:auto;overflow: hidden;">
-    	<div style="padding: 8px 35px 8px 14px;text-shadow: 0 1px 0 rgba(255,255,255,0.5);background-color: #fcf8e3;border: 1px solid #fbeed5;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;color: #666;">
-            <a href="javascript:void(0)" class="easyui-linkbutton"  style="width:100px" onclick="goto1()">店铺类目</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton"  style="width:100px" onclick="goto2()">会员类目</a>
-			<div style="line-height:30px">页面说明：管理公共的系统类目信息，建议由培训后的员工使用，以免造成系统问题！</div>
-			<a href="javascript:void(0)" class="easyui-linkbutton"  style="width:100px" onclick="openAddWin()">新增同级</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton"  style="width:100px" onclick="openAddSWin()">新增子级</a>
-		  	<a href="javascript:void(0)" class="easyui-linkbutton"  style="width:80px" onclick="openEditWin();">修改</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton"  style="width:100px" onclick="editStatus();">启用/禁用</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton"  style="width:80px" onclick="delCategory();">删除</a>
-	</div>
-	
+
+
+    <div id="tool" class="main-tool" >
+        <h1>系统版本管理</h1>
+        <div class="tool-btn" >
+            <div style="float: left;;margin-top: 5px">
+                <a href="javascript:void(0)" class="btn btn-blue" onclick="goto1()">自定义类目</a>
+                <a href="javascript:void(0)" class="btn btn-blue" onclick="goto2()">店铺类目</a>
+            </div>
+            <div style="float: right;padding-right: 20px;margin-top: 5px">
+                <a href="javascript:void(0)" class="btn" onclick="openAddWin()">新增同级</a>
+                <a href="javascript:void(0)" class="btn" onclick="openAddSWin()">新增子级</a>
+                <a href="javascript:void(0)" class="btn" onclick="openEditWin();">修改</a>
+                <a href="javascript:void(0)" class="btn" onclick="editStatus();">启用/禁用</a>
+                <a href="javascript:void(0)" class="btn btn-red" onclick="delCategory();">删除</a>
+            </div>
+        </div>
+    </div>
+
 	<div id="window" class="easyui-window" title="系统类目编辑"
         data-options="modal:true,closable:false,collapsible:false,minimizable:false,maximizable:false,resizable:false,closed:true"
-        style="width:550px;height:420px;padding:10px;">
+        style="width:550px;height:450px;padding:10px;">
         <form id="applyForm" action="" method="post">
         	<input type="hidden"  name="id">
             <input type="hidden"  name="pid">
@@ -65,12 +71,12 @@
                     <label>说明：</label>
                     <input name="remark" class="easyui-textbox"  multiline="true" labelPosition="top" style="width:70%;height:130px">
                 </li>
+                <li class="fm_1l" style="text-align: center;">
+                    <a href="javascript:void(0)" class="btn "  onclick="apply()">提交</a>
+                    <a href="javascript:void(0)" class="btn btn-red"   onclick="closeWin()">关闭</a>
+                </li>
             </ul>
         </form>
-        <div style="text-align:center;padding:5px">
-            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok"  style="width:100px" onclick="apply()">提交</a>
-            <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel"  style="width:100px"  onclick="closeWin()">关闭</a>
-        </div>
     </div>
 
   </body>

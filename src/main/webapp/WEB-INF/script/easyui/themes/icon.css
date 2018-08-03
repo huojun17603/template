@@ -94,3 +94,28 @@
 .icon-large-chart{
 	background:url('icons/large_chart.png') no-repeat center center;
 }
+
+/**********************************************/
+.icon-custome-home204{
+	background:url('bootstrapx/icon/home204.png') no-repeat center center;
+}
+
+.icon-custome-set205{
+	background:url('bootstrapx/icon/set205.png') no-repeat center center;
+}
+
+.icon-custome-context{
+	background:url('bootstrapx/icon/context.png') no-repeat center center;
+}
+
+.icon-custome-cservice{
+	background:url('bootstrapx/icon/cservice.png') no-repeat center center;
+}
+
+.icon-custome-dic{
+	background:url('bootstrapx/icon/dic.png') no-repeat center center;
+}
+
+.icon-custome-power{
+	background:url('bootstrapx/icon/power.png') no-repeat center center;
+}

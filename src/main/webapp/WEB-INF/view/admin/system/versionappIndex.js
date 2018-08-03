@@ -5,58 +5,53 @@ $(function(){
 		striped:true,
 	    fit:true,
 	    pageSize:50,
-	    pageList:[50,100],
 	    idField:'id',
 	    loadMsg:'加载中……',
 	    rownumbers:true,//序号
 	    pagination:true,//显示底部分页工具栏
 	    singleSelect:true,//单选
+        fitColumns:true,
 	    columns:[[
-		          {field:'id',title:'id',hidden:true},
-				  {field:'appname',title:'应用名称',align:"center",width:150},
-		          {field:'equipment',title:'设备类型',align:"center",width:100,
-		        	  formatter: function(value,row,index){
-		        		  switch (value) {
-							case "android":return "安卓";
-							case "ios":return "IOS";
-							default:
-								break;
-						}
-		        	  }
-		          },
-		          {field:'version',title:'版本号',align:"center",width:100},
-			      {field:'force',title:'强制更新',align:"center",width:100,
-						formatter: function(value,row,index){
-							return value?"是":"否";
-						}
-				   },
-		          {field:'http',title:'下载地址',align:"center",width:200,
-		        	  formatter: function(value,row,index){
-							return "<a href='"+value+"' target='_blank'>"+value+"</a>";
-		        	  }
-		          },
-		          {field:'filezise',title:'文件大小（KB）',align:"center",width:100},
-		          {field:'status',title:'状态',align:"center",width:100,
-		        	  formatter: function(value,row,index){
-		        		  switch (value) {
-							case 1:return "待发布";
-							case 2:return "当前版本";
-							case 3:return "过期版本";
-							default:
-								break;
-						}
-		        	  }
-		          },
-				  {field:'releasetime',title:'发布时间',align:"center",width:200,
-						formatter: function(value,row,index){
-							return formatterTime(value,row,index);
-						}
-				  },
-				  {field:'remark',title:'更新说明',align:"center",width:200,
-					formatter: function(value,row,index){
-						return "<div title='"+value+"'>"+value+"</div>";
-					}
-				  }
+			{field:'id',title:'id',hidden:true},
+			{field:'appname',title:'应用名称',width:150},
+			{field:'equipment',title:'设备类型',width:100,
+			  formatter: function(value,row,index){
+				  switch (value) {
+					case "android":return "安卓";
+					case "ios":return "IOS";
+					default:
+						break;
+				}
+			  }
+			},
+			{field:'version',title:'版本号',width:100},
+			{field:'force',title:'强制更新',width:80,
+				formatter: function(value,row,index){
+					return value?"是":"否";
+				}
+			},
+			{field:'filezise',title:'文件大小（KB）',width:100},
+			{field:'releasetime',title:'发布时间',width:150,
+				formatter: function(value,row,index){
+					return formatterTime(value,row,index);
+				}
+			},
+            {field:'status',title:'状态',width:100,
+                formatter: function(value,row,index){
+                    switch (value) {
+                        case 1:return "待发布";
+                        case 2:return "当前版本";
+                        case 3:return "过期版本";
+                        default:
+                            break;
+                    }
+                }
+            },
+            {field:'http',title:'下载地址',width:500,
+                formatter: function(value,row,index){
+                    return "<a href='"+value+"' target='_blank'>"+value+"</a>";
+                }
+            }
 		]],
 		toolbar:'#tool',
 		onLoadSuccess:function(){
@@ -64,14 +59,10 @@ $(function(){
             initPermissionButton();
 		}
 	});
-	
-	$("#sk_equipment").combobox({
-		editable:false,
-		width:120,
-		onChange:function(){
-			doSearch();
-		}
-	});
+    var pager = $('#datagrid').datagrid('getPager');    // get the pager of datagrid
+    pager.pagination({
+        layout:['first','prev','links','next','last']
+    });
 	
 });
 
@@ -187,4 +178,10 @@ function doSearch(){
 	var appname = $("#sk_searchkey").val();
     var equipment = $("#sk_equipment").combobox("getValue");
     $("#datagrid").datagrid("reload",{"equipment":equipment,"appname":appname});
+}
+
+function doClear(){
+    $("#sk_searchkey").textbox("clear");
+    $("#sk_equipment").combobox("clear");
+    $("#datagrid").datagrid("reload",{"equipment":null,"appname":null});
 }

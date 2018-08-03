@@ -1,14 +1,40 @@
 @charset "utf-8";
 ul,li{list-style: none}
-/** 首页样式 */
-.homeBox{position: relative;margin: 0;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 12px;line-height: 20px;color: #333333;background: #262626;}
-.homeDivBox{padding:15px;webkit-box-sizing: border-box;box-sizing: border-box;background-color: #fff;}
-.homeDivBorder{background: #fafafa;border: 1px solid #cfcfcf;clear: both;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;display: block;}
-.homeDivHead{border-radius: 2px 2px 0 0;border-bottom: 1px solid #cfcfcf;height: 42px;padding: 0 15px;line-height: 42px;background-color: #e8e8e8;}
-.homeDivBody{border-radius: 0 0 2px 2px;padding: 15px;border-bottom: 1px solid #b3b3b3;}
+div,ul,li{padding: 0; margin: 0;}
+
+/** 通用样式表 */
+
+/** 去除Tree的自带图标 */
+.tree-icon {width: 0px;}
+
+/** 按钮样式 */
+.btn{
+    display: inline-block;
+    margin-left: 10px;
+    background: #5973c7;
+    color: #fff;
+    border-radius: 4px;
+    line-height: 34px;
+    padding: 0 20px;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: "微软雅黑";
+}
+
+.btn-red{
+    background-color: red;
+}
+.btn-blue{
+    background-color:#35b8e0;
+}
+
+/************************************主要列表，Tool样式 ********************************/
+.main-tool{height:auto;overflow: hidden;padding-bottom: 5px;}
+.main-tool h1{color: #777; background: #fbfbfb; line-height:40px; border-bottom: 1px solid #ebebeb; text-indent: 27px; font-size: 14px;margin-top: 0px}/**标题样式*/
+.main-tool .tool-remark{margin-left:27px; margin-right:20px; padding: 8px 35px 8px 14px;margin-bottom: 10px;text-shadow: 0 1px 0 rgba(255,255,255,0.5);background-color: #fcf8e3;border: 1px solid #fbeed5;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;color: #666;}
+.main-tool .tool-btn{padding-left:27px}
 
 /* 搜索条件表单样式 */
-div,ul,li{padding: 0; margin: 0;}
 .gongn_p{background:#fff; border-bottom: 1px solid #e8e8e8; padding:12px 0; text-align: center;}
 .gongn_p a{ margin: 0px 16px;}
 .sgtz{border: 0px solid #e32600; overflow: hidden; padding-top: 12px;}
@@ -24,32 +50,20 @@ div,ul,li{padding: 0; margin: 0;}
 
 .sgtz_center{text-align: center;margin-top: 15px;}
 
-#header { display:block; overflow:hidden; height:auto; z-index:30}
-#header .headerNav { height:50px; background-repeat:no-repeat; background-position:100% -50px;}
-#header .logo { float:left; width:200px; height:58px;}
-#header .nav { display:block; height:21px; position:absolute; top:20px; right:0; z-index:31;margin-right: 20px;}
-#header .nav li { float:left; margin-left:-1px; padding:0 10px; line-height:11px; position:relative;}
-#header .nav li a {padding:6px 15px; width:100px;  height:40px; color: #fff; border-radius: 3px; background:#ff9933;text-decoration: none;}
-#header .nav li a:hover{ color: #fff; background: #e89848;}
-#header .nav ul { display:none; width:230px; border:solid 1px #06223e; overflow:hidden; background:#999; position:absolute; top:20px; right:0;}
-#header .nav ul li { margin-top:10px; height:21px;}
-#header .nav ul li a { color:#000;}
-#header .nav .selected ul {display:block;}
 
-/* 新增修改表单标准样式 */
+/******************************* 新增修改表单标准样式 *******************************/
 /* 给出4位汉字空间 */
 .fm_s {border: 0px solid #e32600; overflow: hidden; padding-top: 12px;}
 .fm_s li{padding:8px 0px 8px 0px; float:left; list-style: none; }
-.fm_s li label { text-align: right;  width:100px; display: inline-block;}
+.fm_s li label { text-align: right;  width:120px; display: inline-block; font-weight: bold; font-size: 12px;}
 /* 给出6位汉字空间 */
 .fm_m {border: 0px solid #e32600; overflow: hidden; padding-top: 12px;}
 .fm_m li{padding:8px 0px 8px 0px; float:left; list-style: none; }
-.fm_m li label { text-align: right;  width:140px; display: inline-block;}
+.fm_m li label { text-align: right;  width:160px; display: inline-block; font-weight: bold; font-size: 12px;}
 /* 给出8位汉字空间 */
 .fm_l {border: 0px solid #e32600; overflow: hidden; padding-top: 12px;}
 .fm_l li{padding:8px 0px 8px 0px; float:left; list-style: none; }
-.fm_l li label { text-align: right;  width:180px; display: inline-block;}
-
+.fm_l li label { text-align: right;  width:200px; display: inline-block; font-weight: bold; font-size: 12px;}
 /*一列一个Input*/
 .fm_1l{width:100%;}
 /*一列两个Input*/
@@ -64,16 +78,8 @@ div,ul,li{padding: 0; margin: 0;}
 .bd{color: blue;font-weight: bold;}
 .grd{color: gray;font-weight: bold;}
 
-/*窗口布局*/
-.htl {font-size: 12px;font-weight: bold;color:#999;}
-/*一般统计*/
-.hmd {background: #fafafa;border: 1px solid #cfcfcf;clear: both;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;display: inline-block;width: 160px;margin-right: 10px;margin-bottom:  10px;padding: 5px;}
-.hm2d {display: inline-block;margin-right: 10px;padding: 5px;}
-
-.hmd .ky {margin: 5px;color:#999;}
-.hmd .sp {margin: 5px;color:#999;}
-.hmd .vl {margin: 5px;font-size: 24px;font-weight: bold;}
-
+/*********************** 通用表单INPUT样式 **********************/
+input{outline:none;}
 .vipt{
     font-size: 12px;
     margin: 0px;
@@ -90,9 +96,8 @@ div,ul,li{padding: 0; margin: 0;}
     -webkit-box-shadow: 0 0 3px 0 #D4D4D4;
     box-shadow: 0 0 3px 0 #D4D4D4;
 }
-input{
-    outline:none;
-}
+
+/*********************** 通用图片预览及裁剪器样式 **********************/
 
 /**裁剪器样式**/
 .jcrop-box{

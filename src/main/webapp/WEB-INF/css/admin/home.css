@@ -1,0 +1,71 @@
+@charset "utf-8";
+ul,li{list-style: none}
+/** 首页框架样式文件，仅针对于框架页面 */
+
+/** 框架头部样式 */
+#header { display:block; overflow:hidden; height:auto; z-index:30}
+#header .headerNav { height:50px; background-repeat:no-repeat; background-position:100% -50px;}
+#header .logo { float:left; width:200px; height:58px;}
+#header .nav { display:block; height:21px; position:absolute; top:20px; right:0; z-index:31;margin-right: 20px;}
+#header .nav li { float:left; margin-left:-1px; padding:0 10px; line-height:11px; position:relative;}
+#header .nav li a {padding:6px 15px; width:100px;  height:40px; color: #fff; border-radius: 3px; background:#ff9933;text-decoration: none;}
+#header .nav li a:hover{ color: #fff; background: #e89848;}
+#header .nav ul { display:none; width:230px; border:solid 1px #06223e; overflow:hidden; background:#999; position:absolute; top:20px; right:0;}
+#header .nav ul li { margin-top:10px; height:21px;}
+#header .nav ul li a { color:#000;}
+#header .nav .selected ul {display:block;}
+
+/** 框架导航栏样式 */
+.nav_top{
+    padding-left: 35px;
+    height: 40px;
+    background-color: #ffffff;
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #777;
+    border-width: 0 0 1px;
+    border-bottom-color: #d4d4d4;
+    border-style: solid;
+    position: relative;
+}
+
+.tree li{
+    white-space: nowrap;
+    padding-left: 20px;
+}
+
+.tree-node{
+    height: 22px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.tree-title {
+    font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+    padding: 0 2px;
+    height: 20px;
+    line-height: 20px;
+}
+.panel-title{
+    padding-left: 30px;
+}
+
+/** 首页窗口样式 */
+.homeBox{position: relative;margin: 0;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 12px;line-height: 20px;color: #333333;background: #262626;}
+.homeDivBox{padding:15px;webkit-box-sizing: border-box;box-sizing: border-box;background-color: #fff;}
+.homeDivBorder{background: #fafafa;border: 1px solid #cfcfcf;clear: both;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;display: block;}
+.homeDivHead{border-radius: 2px 2px 0 0;border-bottom: 1px solid #cfcfcf;height: 42px;padding: 0 15px;line-height: 42px;background-color: #e8e8e8;}
+.homeDivBody{border-radius: 0 0 2px 2px;padding: 15px;border-bottom: 1px solid #b3b3b3;}
+/*窗口布局*/
+.htl {font-size: 12px;font-weight: bold;color:#999;}
+/*一般统计*/
+.hmd {background: #fafafa;border: 1px solid #cfcfcf;clear: both;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;display: inline-block;width: 160px;margin-right: 10px;margin-bottom:  10px;padding: 5px;}
+.hm2d {display: inline-block;margin-right: 10px;padding: 5px;}
+.hmd .ky {margin: 5px;color:#999;}
+.hmd .sp {margin: 5px;color:#999;}
+.hmd .vl {margin: 5px;font-size: 24px;font-weight: bold;}
