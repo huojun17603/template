@@ -9,7 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>template Maven Webapp</name>
+  <name>template</name>
   <url>http://www.example.com</url>
 
   <properties>
@@ -22,7 +22,7 @@
     <dependency>
       <groupId>com.ich.core</groupId>
       <artifactId>ich.core</artifactId>
-      <version>1.2.3</version>
+      <version>1.2.4</version>
     </dependency>
     <dependency>
       <groupId>com.ich.dic</groupId>

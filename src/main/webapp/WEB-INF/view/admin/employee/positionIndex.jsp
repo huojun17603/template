@@ -40,18 +40,20 @@
     <div data-options="region:'center'" style="background-color: #E0ECFF">
     	<table id="datagrid"></table>
     </div>
-    
-    <div id="tool" style="padding:5px;height:auto;overflow: hidden;">
-		<div class="sgtz_atn">
-			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add"  style="width:120px"  onclick="openPositionWindow()">新增职位信息</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit"  style="width:120px"  onclick="editPositionWindow()">修改职位信息</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel"  style="width:120px"  onclick="removePosition()">删除职位信息</a>
+
+	<div id="tool" class="main-tool" >
+		<div class="tool-btn" >
+			<div style="float: right;padding-right: 20px;margin-top: 5px">
+				<a href="javascript:void(0)" class="btn" onclick="openPositionWindow()">新增</a>
+				<a href="javascript:void(0)" class="btn" onclick="editPositionWindow()">修改</a>
+				<a href="javascript:void(0)" class="btn btn-red" onclick="removePosition()">删除</a>
+			</div>
 		</div>
 	</div>
-	
-	<div id="position_save_window" class="easyui-window" title="职位申请表单" 
+
+	<div id="position_save_window" class="easyui-window" title="职位申请表单"
 		data-options="modal:true,collapsible:false,minimizable:false,maximizable:false,resizable:false,closable:false,closed:true" 
-		style="width:450px;height:250px;padding:10px;">
+		style="width:600px;height:300px;padding:10px;">
         <div style="padding:5px 20px 5px 20px">
         	<form id="position_save_form">
         		<input id="positionId" name="id" type="hidden">
@@ -62,7 +64,7 @@
 					</li>
 					<li>
 						<label>职位名称：</label>
-						<input id="name_input" name="name" class="easyui-validatebox textbox vipt" style="height: 20px;"
+						<input id="name_input" name="name" class="easyui-validatebox textbox vipt"
 							data-options="required:true">
 					</li>
 					<li>
@@ -71,8 +73,8 @@
 					</li>
 				</ul>
         		<div class="sgtz_center">
-					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok"  style="width:100px"  onclick="addPosition()">确认</a>
-					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel"  style="width:100px"  onclick="closedPositionWindow()">取消</a>
+					<a href="javascript:void(0)" class="btn" onclick="addPosition()">确认</a>
+					<a href="javascript:void(0)" class="btn btn-red" onclick="closedPositionWindow()">取消</a>
         		</div>
         	</form>
         </div>

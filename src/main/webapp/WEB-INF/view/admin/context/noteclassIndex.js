@@ -1,15 +1,16 @@
 $(function(){
 	$("#treegrid").treegrid({
 		url:noteclassListUrl,
-		border:false,
-		fit:true,
-		rownumbers:true,
-		idField:"id",
-		treeField:"id",
+        border:false,
+        fit:true,
+        rownumbers:true,
+        idField:"id",
+        treeField:"name",
+        fitColumns:true,
 		columns:[[
-			{field:'id',title:'编号'},
-			{field:'name',title:'名称'},
-			{field:'remark',title:'备注'}
+			{field:'id',title:'编号',width:30},
+			{field:'name',title:'名称',width:150},
+			{field:'remark',title:'备注',width:400}
 		]],
 		toolbar:'#tool'
 	});

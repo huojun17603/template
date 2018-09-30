@@ -5,9 +5,10 @@ $(function(){
 	    fit:true,
 	    rownumbers:true,
 	    singleSelect:true,//单选
+        fitColumns:true,
 		columns:[[
-		          {field:'name',title:'职位名称',align:"center",width:150},
-		          {field:'orgName',title:'所属机构',align:"center",width:200},
+		          {field:'name',title:'职位名称',width:150},
+		          {field:'orgName',title:'所属机构',width:200},
 		          {field:'permissionOrgId',title:'数据权限',width:400,formatter:initPermissionOrgId},
 		          {field:'id',title:'菜单（窗口）权限操作项',width:220,formatter:initOp}
 		]],

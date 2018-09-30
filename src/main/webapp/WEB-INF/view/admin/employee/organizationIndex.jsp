@@ -25,19 +25,23 @@
 	</style>
   </head>
   
-  <body>
+  <body style="width: 100%;height: 100%">
     <table id="datagrid"></table>
-    <div id="tool" style="padding:5px;height:auto;overflow: hidden;">
-		<div class="sgtz_atn">
-			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add"  style="width:120px"  onclick="addOrgWindow()">新增机构信息</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit"  style="width:120px"  onclick="editOrgWindow()">修改机构信息</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel"  style="width:120px"  onclick="removeOrg()">删除机构信息</a>
+
+	<div id="tool" class="main-tool" >
+		<h1>组织机构管理</h1>
+		<div class="tool-btn" >
+			<div style="float: right;padding-right: 20px;margin-top: 5px">
+				<a href="javascript:void(0)" class="btn" onclick="addOrgWindow()">新增</a>
+				<a href="javascript:void(0)" class="btn" onclick="editOrgWindow()">修改</a>
+				<a href="javascript:void(0)" class="btn btn-red" onclick="removeOrg()">删除</a>
+			</div>
 		</div>
 	</div>
-	
-	<div id="organization_save_window" class="easyui-window" title="机构信息申请表单" 
+
+	<div id="organization_save_window" class="easyui-window" title="机构信息申请表单"
 		data-options="modal:true,collapsible:false,minimizable:false,maximizable:false,resizable:false,closable:false,closed:true" 
-		style="width:450px;height:300px;padding:10px;">
+		style="width:600px;height:320px;padding:10px;">
         <div style="padding:5px 20px 5px 20px">
         	<form id="organization_save_form">
         		<input id="orgid" name="id" type="hidden">
@@ -48,7 +52,7 @@
 					</li>
 					<li>
 						<label>机构名称：</label>
-						<input id="orgName_input" name="orgName" class="easyui-validatebox textbox vipt" style="height: 20px;"
+						<input id="orgName_input" name="orgName" class="easyui-validatebox textbox vipt"
 							data-options="required:true">
 					</li>
 					<li>
@@ -63,8 +67,8 @@
 					</li>
 				</ul>
         		<div class="sgtz_center">
-					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok"  style="width:100px"  onclick="addOrg()">确认</a>
-					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel"  style="width:100px"  onclick="closedOrgWindow()">取消</a>
+					<a href="javascript:void(0)" class="btn" onclick="addOrg()">确认</a>
+					<a href="javascript:void(0)" class="btn btn-red" onclick="closedOrgWindow()">取消</a>
         		</div>
         	</form>
         </div>

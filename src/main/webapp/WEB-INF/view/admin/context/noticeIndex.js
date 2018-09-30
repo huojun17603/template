@@ -5,21 +5,21 @@
 		striped:true,
 	    fit:true,
 	    pageSize:50,
-	    pageList:[50,100],
 	    idField:'id',
 	    loadMsg:'加载中……',
 	    rownumbers:true,//序号
 	    pagination:true,//显示底部分页工具栏
 	    singleSelect:true,//单选
+        fitColumns:true,
 		columns:[[
-		          {field:'classname',title:'类型',align:"center",width:100},
-		          {field:'title',title:'标题',align:"center",width:300},
-		          {field:'samlltitle',title:'短标题',align:"center",width:100},
-		          {field:'author',title:'作者',align:"center",width:120},
+		          {field:'classname',title:'类型',width:100},
+		          {field:'title',title:'标题',width:300},
+		          {field:'samlltitle',title:'短标题',width:100},
+		          {field:'author',title:'作者',width:120},
 
 		          {field:'info',title:'简介',width:600},
-			      {field:'createtime',title:'创建时间',align:"center",width:150,formatter:formatterTime},
-		          {field:'status',title:'状态',width:120,align:"center",
+			      {field:'createtime',title:'创建时间',width:150,formatter:formatterTime},
+		          {field:'status',title:'状态',width:120,
 		        	  formatter: function(value,row,index){
 		        		  switch (value) {
 			        		case 1:
@@ -33,6 +33,12 @@
 		]],
 		toolbar:'#tool'
 	});
+
+    var pager = $('#datagrid').datagrid('getPager');    // get the pager of datagrid
+    pager.pagination({
+        layout:['first','prev','links','next','last','sep','manual']
+    });
+
 	// $("#assign_input").combobox({
 	// 	editable:false,
 	// 	data:[{id:"0",text:"全部"},{id:"1",text:"PC"},{id:"2",text:"微信"}],
@@ -208,4 +214,8 @@ function doSearch(){
 	var searchkey  = $("#sk_searchkey").val();
 	$("#datagrid").datagrid("reload",{classid:classid,searchkey:searchkey});
 }
-
+function doClear(){
+    $("#sk_searchkey").textbox("clear");
+    $("#sk_classesid").combotree("clear");
+    $("#datagrid").datagrid("reload",{searchkey:null,classid:null});
+}

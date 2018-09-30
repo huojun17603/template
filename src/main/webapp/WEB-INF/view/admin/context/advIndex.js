@@ -9,6 +9,7 @@ $(function(){
 	    rownumbers:true,//序号
 	    pagination:true,//显示底部分页工具栏
 	    singleSelect:true,//单选
+        fitColumns:true,
 	    view:groupview,
         groupField:'postionname',
         groupFormatter:function(value,rows){
@@ -31,6 +32,10 @@ $(function(){
 			$("#datagrid").datagrid('scrollTo',0);
 		}
 	});
+    var pager = $('#datagrid').datagrid('getPager');    // get the pager of datagrid
+    pager.pagination({
+        layout:['first','prev','links','next','last','sep','manual']
+    });
     $.ajax({
         url: basePath+postionsList + "?classes=1",
         success: function(data){

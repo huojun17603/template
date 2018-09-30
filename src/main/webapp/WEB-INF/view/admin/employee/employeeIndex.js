@@ -5,26 +5,29 @@ $(function(){
 		striped:true,
 	    fit:true,
 	    pageSize:50,
-	    pageList:[50,100],
 	    idField:'id',
 	    loadMsg:'加载中……',
 	    rownumbers:true,//序号
 	    pagination:true,//显示底部分页工具栏
 	    singleSelect:true,//单选
+        fitColumns:true,
 		columns:[[
-		          {field:'logincode',title:'登录账号',align:"center",width:150},
-		          {field:'name',title:'姓名',align:"center",width:80},
-		          {field:'positionName',title:'职位',align:"center",width:120},
-		          {field:'orgName',title:'组织机构',align:"center",width:200},
-		          {field:'phone',title:'绑定手机号',align:"center",width:120 },
-		          {field:'email',title:'绑定电子邮箱',align:"center",width:200},
-		          {field:'status',title:'状态',align:"center",width:80,formatter:initStatus},
-		          {field:'id',title:'操作项',align:"center",width:150,formatter:initOp}
+		          {field:'logincode',title:'登录账号',width:150},
+		          {field:'name',title:'姓名',width:80},
+		          {field:'positionName',title:'职位',width:120},
+		          {field:'orgName',title:'组织机构',width:200},
+		          {field:'phone',title:'绑定手机号',width:120 },
+		          {field:'email',title:'绑定电子邮箱',width:200},
+		          {field:'status',title:'状态',width:80,formatter:initStatus}
 		]],
 		toolbar:'#tool'
 	});
-	
-	function initStatus(value,row,index){
+    var pager = $('#datagrid').datagrid('getPager');    // get the pager of datagrid
+    pager.pagination({
+        layout:['first','prev','links','next','last','sep','manual']
+    });
+
+    function initStatus(value,row,index){
 		return value==1?"<span class='gd'>已启用</span>":"<span class='rd'>已禁用</span>";
 	}
 	
@@ -124,6 +127,28 @@ function addEmployee(){
             }
         }
     });
+}
+
+function editStatus() {
+    var row = $("#datagrid").datagrid("getSelected");
+    if(isEmpty(row)){
+        $.messager.alert("提示消息",'请选择一条记录！');
+        return ;
+    }
+    var id = row.id;
+    if(row.status==0){
+        $.messager.confirm('提示', '你确定要启用这个员工吗？', function(r) {
+            if (r) {
+                able(id);
+            }
+        });
+	}else{
+        $.messager.confirm('提示', '你确定要禁用这个员工吗？', function(r) {
+            if (r) {
+                disable(id);
+            }
+        });
+	}
 }
 
 function able(id){

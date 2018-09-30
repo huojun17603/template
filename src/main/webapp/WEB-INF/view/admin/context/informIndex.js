@@ -5,15 +5,17 @@ $(function(){
 		striped:true,
 	    fit:true,
 	    idField:'id',
+        pageSize:50,
 	    loadMsg:'加载中……',
 	    rownumbers:true,//序号
+        pagination:true,//显示底部分页工具栏
 	    singleSelect:true,//单选
+        fitColumns:true,
 	    columns:[[
 	              {field:'id',title:'id',hidden:true},
 		          {field:'info',title:'内容',width:800},
 		          {field:'createtime',title:'创建时间',width:150,formatter:formatterTime},
                   {field:'endtime',title:'到期时间',width:150,formatter:formatterTime}
-
 		]],
         rowStyler: function(index,row){
             var timestamp = Date.parse(new Date());
@@ -26,6 +28,10 @@ $(function(){
 			$("#datagrid").datagrid('scrollTo',0);
 		}
 	});
+    var pager = $('#datagrid').datagrid('getPager');    // get the pager of datagrid
+    pager.pagination({
+        layout:['first','prev','links','next','last','sep','manual']
+    });
 });
 
 function openAddWindow() {

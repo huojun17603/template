@@ -25,23 +25,20 @@
   <body style="width:100%;height:100%;">
 
     <table id="datagrid"></table>
-    
-    <div id="tool" style="padding:0px;height:auto;overflow: hidden;">
-   		<div style="padding: 8px 35px 8px 14px;text-shadow: 0 1px 0 rgba(255,255,255,0.5);background-color: #fcf8e3;border: 1px solid #fbeed5;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;color: #666;">
-			<div style="line-height:30px">功能说明：平台广告信息发布页，注意：排序是从大到小</div>
-			<a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px"  onclick="openAddWindow()">新增</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px"  onclick="openEditWindow()">修改</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" style="width:100px"  onclick="deleteAdv()">删除</a>
+
+	<div id="tool" class="main-tool" >
+		<h1>页面广告管理</h1>
+		<div class="tool-btn" >
+			<div style="float: right;padding-right: 20px;margin-top: 5px">
+				<a href="javascript:void(0)" class="btn" onclick="openAddWindow()">新增</a>
+				<a href="javascript:void(0)" class="btn" onclick="openEditWindow()">修改</a>
+				<a href="javascript:void(0)" class="btn btn-red" onclick="deleteAdv()">删除</a>
+			</div>
 		</div>
-		<!-- 
-		<div class="sgtz_atn">
-			<span style="font-weight: bold;">搜索筛选：</span>
-			<input id="sk_searchkey" class="easyui-searchbox" data-options="prompt:'搜索关键字（组名、说明）',searcher:doSearch" style="width:300px"></input>
-		</div> -->
 	</div>
-    
+
     <div id="apply_window" class="easyui-window" title="信息表单"
-		data-options="modal:true,collapsible:false,minimizable:false,maximizable:false,resizable:false,closable:false,closed:true" 
+		data-options="modal:true,collapsible:false,minimizable:false,maximizable:false,resizable:false,closable:false,closed:true"
 		style="width:850px;height:400px;padding:10px;">
 		<input id="uploadify" type="file" style="display: none"/>
        	<form id="apply_form">
@@ -72,8 +69,8 @@
 				</div>
 				</li>
 				<li style="text-align: center;padding-left:80px;">
-					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok"  style="width:100px"  onclick="applyEdit()">确认</a>
-					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel"  style="width:100px"  onclick="closeWindow()">取消</a>
+					<a href="javascript:void(0)" class="btn"  onclick="applyEdit()">确认</a>
+					<a href="javascript:void(0)" class="btn btn-red" onclick="closeWindow()">取消</a>
 				</li>
 			</ul>
 			</div>

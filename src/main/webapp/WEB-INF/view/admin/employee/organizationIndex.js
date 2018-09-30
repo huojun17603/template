@@ -6,11 +6,12 @@ $(function(){
 	    rownumbers:true,
 	    idField:'id',
 	    treeField:"orgName",
+        fitColumns:true,
 		columns:[[
 		          {field:'parentId',title:'parentId',hidden:true},
 		          {field:'orgName',title:'机构名称',width:250},
-		          {field:'leaderName',title:'领导',align:"center",width:150 },
-		          {field:'deputyLeaderName',title:'副领导',align:"center",width:150}
+		          {field:'leaderName',title:'领导',width:150 },
+		          {field:'deputyLeaderName',title:'副领导',width:150}
 		]],
 		toolbar:'#tool'
 	});
@@ -143,12 +144,10 @@ function selectLeader(){
 		singleSelect:false,//单选/多选
 		toolbar:null,
 		columns:[[
-				{field:'accountCode',title:'系统编号'},
-				{field:'name',title:'姓名'},
-				{field:'positionName',title:'职位'},
-				{field:'orgName',title:'组织机构'},
-				{field:'phone',title:'绑定手机号'},
-				{field:'email',title:'绑定电子邮箱'}
+				{field:'accountCode',title:'系统编号',width:200},
+				{field:'name',title:'姓名',width:100},
+				{field:'positionName',title:'职位',width:100},
+				{field:'orgName',title:'组织机构',width:200}
 		    ]],
 	    searchCall:function(dg,value){
 			dg.datagrid('reload',{name:value});
@@ -174,11 +173,10 @@ function selectDeputyLeader(){
 		singleSelect:false,//单选/多选
 		searchPrompt:"请输入关键字",
 		columns:[[
-				{field:'accountCode',title:'系统编号'},
-				{field:'name',title:'姓名'},
-				{field:'positionName',title:'职位'},
-				{field:'orgName',title:'组织机构'},
-				{field:'phone',title:'绑定手机号'},
+				{field:'accountCode',title:'系统编号',width:200},
+				{field:'name',title:'姓名',width:100},
+				{field:'positionName',title:'职位',width:100},
+				{field:'orgName',title:'组织机构',width:200}
 		    ]],
 		searchCall:function(dg,value){
 			dg.datagrid('reload',{name:value});

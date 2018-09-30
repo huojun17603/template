@@ -49,20 +49,28 @@
   
   <body>
     <table id="datagrid"></table>
-    <div id="tool" style="padding:0px;height:auto;overflow: hidden;">
-    	<div style="padding: 8px 35px 8px 14px;text-shadow: 0 1px 0 rgba(255,255,255,0.5);background-color: #fcf8e3;border: 1px solid #fbeed5;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;color: #666;">
-			<div style="line-height:30px">功能说明：用于购彩中心页面内容管理。目前用于：资讯、公告</div>
-			<a href="javascript:void(0)" class="easyui-linkbutton"  style="width:80px"  onclick="openAddWindow()">新增</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton"  style="width:80px"  onclick="openEditWindow()">修改</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton"  style="width:120px"  onclick="editStatus()">禁用/启用</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton"  style="width:80px"  onclick="openDetailWindow()">图文详情</a>
-			<div class="sgtz_atn">
-				搜索：<input id="sk_classesid"  class="easyui-combotree">
-				<input id="sk_searchkey" class="easyui-searchbox" data-options="prompt:'请输入搜索关键字（标题）',searcher:doSearch" style="width:300px"/>
+
+	<div id="tool" class="main-tool" >
+		<h1>文章管理</h1>
+		<div class="tool-btn" >
+			<div style="float: left;;margin-top: 5px">
+				<input id="sk_classesid"  class="easyui-combotree" data-options="height:34,width:178,editable:false">
+				<input id="sk_searchkey" class="easyui-textbox" data-options="height:34,prompt:'搜索关键字（标题）'"  style="width:300px"/>
+			</div>
+			<div style="float: left;margin-top: 5px">
+				<a href="javascript:void(0)" class="btn btn-blue"  onclick="doSearch()">搜索</a>
+				<a href="javascript:void(0)" class="btn btn-blue"  onclick="doClear()">清空</a>
+			</div>
+
+			<div style="float: right;padding-right: 20px;margin-top: 5px">
+				<a href="javascript:void(0)" class="btn" onclick="openAddWindow()">新增</a>
+				<a href="javascript:void(0)" class="btn" onclick="openEditWindow()">修改</a>
+				<a href="javascript:void(0)" class="btn" onclick="editStatus()">启用/禁用</a>
+				<a href="javascript:void(0)" class="btn" onclick="openDetailWindow()">图文详情</a>
 			</div>
 		</div>
 	</div>
-	
+
 	<div id="add_window" class="easyui-window" title="新增文章"
 		data-options="modal:true,collapsible:false,minimizable:false,maximizable:false,resizable:false,closable:false,closed:true" 
 		style="width:900px;height:600px;padding:10px;">
@@ -115,10 +123,9 @@
 						<textarea name="html" cols="100" rows="8" style="width:800px;height:300px;visibility:hidden;"></textarea>
 					</li>
 				</ul>
-
         		<div class="sgtz_center">
-					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok"  style="width:100px"  onclick="addNew()">确认</a>
-					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel"  style="width:100px"  onclick="closeAddWindow()">取消</a>
+					<a href="javascript:void(0)" class="btn" onclick="addNew()">确认</a>
+					<a href="javascript:void(0)" class="btn btn-red" onclick="closeAddWindow()">取消</a>
         		</div>
         	</form>
         </div>

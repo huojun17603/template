@@ -36,19 +36,21 @@
     <div data-options="region:'center'" style="background-color: #E0ECFF">
     	<table id="datagrid"></table>
     </div>
-    
-    <div id="tool" style="padding:0px;height:auto;overflow: hidden;">
-		<div class="sgtz_atn">
-			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add"  style="width:160px"  onclick="openQuickWindow()">注册员工基本信息</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add"  style="width:160px"  onclick="openQuickEditWindow()">修改员工基本信息</a>
-			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add"  style="width:160px"  onclick="restkey()">重置员工密码</a>
 
+	<div id="tool" class="main-tool" >
+		<div class="tool-btn" >
+			<div style="float: right;padding-right: 20px;margin-top: 5px">
+				<a href="javascript:void(0)" class="btn" onclick="openQuickWindow()">注册员工基本信息</a>
+				<a href="javascript:void(0)" class="btn" onclick="openQuickEditWindow()">修改员工基本信息</a>
+				<a href="javascript:void(0)" class="btn" onclick="editStatus()">启用/禁用</a>
+				<a href="javascript:void(0)" class="btn btn-red" onclick="restkey()">重置员工密码</a>
+			</div>
 		</div>
 	</div>
-	
+
 	<div id="employee_apply_window" class="easyui-window" title="员工快速申请表单" 
 		data-options="modal:true,collapsible:false,minimizable:false,maximizable:false,resizable:false,closable:false,closed:true" 
-		style="width:450px;height:400px;padding:10px;">
+		style="width:600px;height:450px;padding:10px;">
         <div style="padding:5px 20px 5px 20px">
         	<form id="employee_apply_form">
         		<input id="id" name="id" type="hidden">
@@ -83,8 +85,8 @@
 					</li>
 				</ul>
         		<div class="sgtz_center">
-					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok"  style="width:100px"  onclick="addEmployee()">确认</a>
-					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel"  style="width:100px"  onclick="closedWindow()">取消</a>
+					<a href="javascript:void(0)" class="btn" onclick="addEmployee()">确认</a>
+					<a href="javascript:void(0)" class="btn btn-red" onclick="closedWindow()">取消</a>
         		</div>
         	</form>
         </div>

@@ -31,13 +31,15 @@ function newSelector(window,property){
         rownumbers:true,//序号
         pagination:true,//显示底部分页工具栏
         singleSelect:property.singleSelect,//单选
+        fitColumns:true,
         columns:property.columns,
         toolbar:(property.toolbar||null)
     });
     var pager = this.$datagrid.datagrid('getPager');
     var buttons = "<div><table style=\"border-spacing:0\"><tr>"
         +"<td><input  id=\"selb_search\" class=\"easyui-searchbox\" style=\"width:150px\"></td>"
-        +"<td><a id=\"selb_ok\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" data-options=\"iconCls:'icon-ok',plain:false\">选择</a></td>"
+        +"<td><a id=\"selb_searchx\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" data-options=\"iconCls:'icon-search',plain:false\">搜索</a></td>"
+        +"<td><a id=\"selb_ok\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" data-options=\"iconCls:'icon-ok',plain:false\">确认</a></td>"
         +"<td><a id=\"selb_cancel\" href=\"javascript:void(0)\" class=\"easyui-linkbutton\" data-options=\"iconCls:'icon-cancel',plain:false\">取消</a></td>"
         +"</tr></table></div>";
     pager.pagination({
@@ -58,6 +60,12 @@ function newSelector(window,property){
         window.window("close");
         window.empty();
     });
+
+    $("#selb_searchx").on("click",{inthis:this},function(e){
+        var value = $("#selb_search").searchbox('getValue');
+        property.searchCall(dg,value);
+    });
+
     $("#selb_search").searchbox({
         searcher:function(value){
             property.searchCall(dg,value);
