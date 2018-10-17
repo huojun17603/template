@@ -88,8 +88,8 @@ var $ysize;
 var init_ZXXFILE = false;
 
 function OPEN_CROP_WIN(property){
-    var mw = property.minSize[0];
-    var mh = property.minSize[1];
+    var mw = property.minSize[0]/2;
+    var mh = property.minSize[1]/2;
     var sly = 'style="width:'+mw+'px;height:'+mh+'px;"';
     property.aspectRatio = mw/mh;
     var crop_div = '<div style="padding:5px;"></div>';
